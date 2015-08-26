@@ -1,29 +1,38 @@
-import * as actionTypes from "../actiontypes/actionTypes";
+import * as actionTypes from '../actiontypes/actionTypes';
+
+import _ from 'lodash';
 
 const initialState = {
     items: [],
     edit: false,
-    searchText: "",
-    filteredItems: []
+    searchText: '',
+    filteredItems: [],
 };
 
 export default function stateReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.SHOW_DETAILS_ACTION:
-            return Object.assign({}, state, {items: action.items});
+            return _.assign({}, state, { items: action.items });
+
         case actionTypes.SHOW_SEARCHED_DETAILS:
-            return Object.assign({}, state, {filteredItems: action.searchedData});
+            return _.assign({}, state, { filteredItems: action.searchedData });
+
         case actionTypes.SHOW_FILTERED_DETAILS_ACTION:
-            return Object.assign({}, state, {items: action.items});
+            return _.assign({}, state, { items: action.items });
+
         case actionTypes.SEARCH_TEXT:
-            return Object.assign({}, state, {searchText: action.searchText});
+            return _.assign({}, state, { searchText: action.searchText });
+
         case actionTypes.UPDATED_JSON_DATA_ACTION:
-            return Object.assign({}, state, {items: action.items});
+            return _.assign({}, state, { items: action.items });
+
         case actionTypes.EDIT_POPUP_STATE:
-            return Object.assign({}, state, {edit: action.edit});
+            return _.assign({}, state, { edit: action.edit });
+
         case actionTypes.CLEAR_SEARCH_TEXT:
-            return Object.assign({}, state, {searchText: ""});
+            return _.assign({}, state, { searchText: '' });
+
         default:
-            return Object.assign({}, state);
+            return _.assign({}, state);
     }
 }

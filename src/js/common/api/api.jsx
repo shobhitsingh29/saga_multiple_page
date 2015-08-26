@@ -1,28 +1,28 @@
-import React from "react";
+import apiConfig from './apiConfig';
+import { join } from 'path';
 
-export const getData = () => {
-    return new Promise(function (resolve, reject) {
-        fetch("http://localhost:3000/tilesData")
-            .then(response => response.json())
-            .then(data => {
-                let items = data.items;
-                resolve(items);
-            })
-            .catch(error => {
-                reject(error);
-            });
+export const getData = () => new Promise(function(resolve, reject) {
+    const url = join(apiConfig.baseUrl, apiConfig.tilesData);
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+            const items = data.items;
+            resolve(items);
+        })
+        .catch((error) => {
+            reject(error);
+        });
 
-    });
-};
+});
 
 export const updateData = (id, payload) => {
-    return fetch(`http://localhost:3000/tilesData/${id}`, {
-        method: "put",
+    const url = join(apiConfig.baseUrl, apiConfig.tilesData);
+    return fetch(`${url}/${id}`, {
+        method: 'put',
         headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload)
-    }).then(response => response.json()).then(data => data);
+        body: JSON.stringify(payload),
+    }).then((response) => response.json()).then((data) => data);
 };
-
