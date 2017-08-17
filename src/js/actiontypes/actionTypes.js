@@ -1,0 +1,2 @@
+export const SHOW_DETAILS="SHOW_DETAILS";
+export const EDIT_DETAILS="EDIT_DETAILS";
