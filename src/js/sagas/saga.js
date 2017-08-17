@@ -16,7 +16,7 @@ export function* showDetailsWatch(){
 }
 
 export function* saveEditDetailsAsync(){
-    yield put({type:"SAVE_EDIT_DETAILS_ACTION",valuefromthefunctiondispatch});
+    yield put({type:"SAVE_EDIT_DETAILS_ACTION",text});
 }
 
 export function* saveEditDetailsWatch(){
@@ -24,7 +24,7 @@ export function* saveEditDetailsWatch(){
 }
 
 export function* searchTextAsync(){
-    yield put({type:"SEARCH_TEXT_ACTION",valuefromthefunctiondispatchsearch});
+    yield put({type:"SEARCH_TEXT_ACTION",text});
 }
 
 export function* searchTextWatch(){
@@ -33,6 +33,6 @@ export function* searchTextWatch(){
 
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
-    yield all([  showDetailsWatch(),saveEditDetailsWatch(),searchTextWatch()
+    yield all([  showDetailsWatch(),saveEditDetailsWatch()
     ]);
 }

@@ -6,12 +6,14 @@ export function showDetailsFunction() {
         text: types.SHOW_DETAILS
     };
 }
-export function searchTextFunction() {
+
+export function searchTextFunction(searchText) {
     return {
         type: types.SEARCH_TEXT,
-        text: types.SEARCH_TEXT
+        value:searchText
     };
 }
+
 export function editDetailsFunction() {
 
     return {

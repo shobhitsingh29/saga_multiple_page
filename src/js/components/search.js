@@ -1,6 +1,6 @@
 import React from "react";
 
-const Search = (props) => {    
+const Search = (props) => {
     return (
         <div >
         <form>

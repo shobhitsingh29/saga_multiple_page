@@ -6,7 +6,8 @@ import utils from "../common/utils";
 class Home extends React.Component {
     constructor(props) {
         super(props);
-
+        this.handleSearchText = this.handleSearchText.bind(this);
+        this.searchData = this.searchData.bind(this);
         /*  this.state = {
               searchText: "",
               data: []
@@ -77,13 +78,27 @@ class Home extends React.Component {
             });*/
     }
 
+    handleSearchText(event) {
+        var value = event.target.value;
+       this.props.handleSearchText(value);
+    }
+    searchData() {
+        console.log(this.props);
+
+        if(this.props.searchText) {
+            window.location.href = utils.searchPath + this.props.searchText;
+        }else{
+            console.log("search box empty");
+        }
+    }
+
     render() {
+        console.log(this.props);
         return (
             <div className="bg-detail">
 
-                <Search  searchText={this.props.searchText} handleSearchText={this.handleSearchText} searchData={this.searchData} clearData={this.clearData}/>
+                <Search  searchText={this.props.searchText} handleSearchText={this.handleSearchText} searchData={this.searchData}/>
                 {this.props.items.length ? <ItemsList searchText={this.props.searchText}  items={this.props.items}/> :<div className="no-result">No Result Found , Search Again</div>}
-
             </div>
         );
     }

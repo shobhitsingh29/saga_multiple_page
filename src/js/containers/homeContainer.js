@@ -10,11 +10,14 @@ import {connect} from "react-redux";
 
 
 const mapStateToProps = ({state}) => ({
-    items: state.items
+    items: state.items,
+    searchText:state.searchText
 });
 
 const mapDispatchToProps = dispatch => ({
-    showDetailsFunction: () => dispatch(stateActions.showDetailsFunction())
+    showDetailsFunction: () => dispatch(stateActions.showDetailsFunction()),
+    handleSearchText:(searchText)=>dispatch(stateActions.searchTextFunction(searchText))
+
 });
 
 const HomeContainer=connect(mapStateToProps,mapDispatchToProps)(Home);
