@@ -17,7 +17,13 @@ export function searchTextFunction(searchText) {
 export function editDetailsFunction() {
 
     return {
-        type: types.SAVE_EDIT_DETAILS,
-        text: types.SAVE_EDIT_DETAILS
+        type: types.GET_EDIT_DETAILS,
+        text: types.GET_EDIT_DETAILS
+    };
+}
+export function editPopUpFunction(edit) {
+    return {
+        type: types.EDIT_POPUP_STATE,
+        edit:edit
     };
 }

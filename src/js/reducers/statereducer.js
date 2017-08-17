@@ -3,7 +3,8 @@ import * as actionTypes from "../actiontypes/actionTypes";
 const initialState = {
     items: [],
     edit: false,
-    searchText: ""
+    searchText: "",
+    id:""
 };
 
 export default function stateReducer(state = initialState, action) {
@@ -14,6 +15,8 @@ export default function stateReducer(state = initialState, action) {
             return Object.assign({},state, {items: action.items});
         case actionTypes.SEARCH_TEXT:
             return Object.assign({}, state, {searchText: action.searchText});
+         case actionTypes.EDIT_POPUP_STATE:
+            return Object.assign({}, state, {edit: action.edit});
          default:
             return Object.assign({}, state);
     }

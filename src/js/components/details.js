@@ -1,20 +1,116 @@
 import React from "react";
-const
-    Details = (props) => {
-    return (
-        <div className="container bg-gray bg-edit">
-            <li className="inline-details">
-                <label >ID : </label><p id="id"> {props.itemData.id}</p>
-                <br/>
-                <label>NAME : </label><p id="name"> {props.itemData.name}</p>
-                <br/>
-                <label>DESCRIPTION : </label><p id="desc"> {props.itemData.description}</p>
-                <br/>
-                <img src={props.itemData.img} alt="season"/>
-                <button type="button" className="btn btn-default align-top-edit" data-dismiss="modal"  onClick={props.handleEdit}>Click To Edit Details</button>
-            </li>
-        </div>
-    );
-};
-export default Details;
+import DetailList from "../components/detailList";
+import EditDetail from "../components/editDetail";
+import * as stateActions from "../actions/actions.js";
 
+
+
+
+class DetailsContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            itemData: {},
+            tempData: {}
+        };
+        this.handleEdit = this.handleEdit.bind(this);
+        this.handleDataChange = this.handleDataChange.bind(this);
+        this.saveData = this.saveData.bind(this);
+        this.closeButton = this.closeButton.bind(this);
+        this.clearData = this.clearData.bind(this);
+        this.postData = this.postData.bind(this);
+    }
+
+    handleEdit() {
+        this.props.editPopUpFunction(true);
+
+    }
+
+    handleDataChange(args, event) {
+        var value = event.target.value;
+        var name = args[0]["name"];
+        var newObj = {};
+        newObj[name] = value;
+        var newItemData = Object.assign({}, this.state.tempData, newObj);
+        this.setState({
+            tempData: newItemData
+        });
+    }
+
+    clearData() {
+        this.setState({
+            tempData: this.state.itemData
+        });
+    }
+
+    closeButton() {
+        this.props.editPopUpFunction(false);
+    }
+
+    postData() {
+
+        var payload = Object.assign({}, this.state.tempData);
+        var id = this.state.tempData.id;
+        var data = new FormData();
+        fetch(`http://localhost:3000/tilesData/${id}`, {
+            method: "put",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload)
+        }).then(function (response) {
+            return response.json();
+        }).then(function (data) {
+
+        });
+
+    }
+
+    saveData() {
+        console.log(this.state.tempData);
+        console.log(this.state.itemData);
+        this.setState({
+            itemData: this.state.tempData
+        });
+        this.postData();
+    }
+
+    componentDidMount() {
+        var main = this;
+        fetch("http://localhost:3000/tilesData").then(function (response) {
+            return response.json();
+        }).then(function (data) {
+            var currentURL = window.location.href;
+            let splitURL = currentURL.split("/");
+            let searchString = splitURL[splitURL.length - 1];
+            let lengthOfItems = data.items.length;
+            for (let i = 0; i < lengthOfItems; i++) {
+                let id = data.items[i]["id"];
+                if (searchString === id) {
+                    main.setState({
+                        itemData: data.items[i],
+                        tempData: data.items[i]
+                    });
+                    break;
+                }
+            }
+        });
+    }
+
+    render() {
+        return (
+            <div >.
+                <DetailList handleEdit={this.handleEdit}  itemData={this.state.itemData}/>{
+
+            }
+                {this.props.edit &&
+                <EditDetail  itemData={this.state.tempData} closeButton={this.closeButton} clearData={this.clearData}   handleDataChange={this.handleDataChange}
+                             saveData={this.saveData}/>
+                }
+
+            </div>
+        );
+    }
+}
+export default (DetailsContainer);
