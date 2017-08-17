@@ -1,0 +1,6 @@
+var utils={
+	
+	searchPath:"/search/"
+	
+};
+
