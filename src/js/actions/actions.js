@@ -10,7 +10,7 @@ export function showDetailsFunction() {
 export function searchTextFunction(searchText) {
     return {
         type: types.SEARCH_TEXT,
-        value:searchText
+        searchText:searchText
     };
 }
 

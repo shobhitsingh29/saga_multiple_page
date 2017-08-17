@@ -3,7 +3,7 @@ import {delay} from "redux-saga";
 import {call,put,takeEvery,all} from "redux-saga/effects";
 import * as actionTypes from "../actiontypes/actionTypes";
 
-import {getData} from "../api/api.js";
+import {getData} from "../common/api/api.js";
 
 export function* showDetailsAsync(){
 
