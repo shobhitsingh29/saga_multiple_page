@@ -17,8 +17,6 @@ const mapDispatchToProps = dispatch => ({
     showDetailsFunction: () => dispatch(stateActions.showDetailsFunction())
 });
 
-
-
 const HomeContainer=connect(mapStateToProps,mapDispatchToProps)(Home);
 
 export default HomeContainer;

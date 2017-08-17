@@ -6,10 +6,16 @@ export function showDetailsFunction() {
         text: types.SHOW_DETAILS
     };
 }
+export function searchTextFunction() {
+    return {
+        type: types.SEARCH_TEXT,
+        text: types.SEARCH_TEXT
+    };
+}
 export function editDetailsFunction() {
 
     return {
-        type: types.EDIT_DETAILS,
-        text: types.EDIT_DETAILS
+        type: types.SAVE_EDIT_DETAILS,
+        text: types.SAVE_EDIT_DETAILS
     };
 }

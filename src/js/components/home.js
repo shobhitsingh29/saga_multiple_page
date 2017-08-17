@@ -81,8 +81,9 @@ class Home extends React.Component {
         return (
             <div className="bg-detail">
 
-                <Search/>
-                <ItemsList items={this.props.items}/>
+                <Search  searchText={this.props.searchText} handleSearchText={this.handleSearchText} searchData={this.searchData} clearData={this.clearData}/>
+                {this.props.items.length ? <ItemsList searchText={this.props.searchText}  items={this.props.items}/> :<div className="no-result">No Result Found , Search Again</div>}
+
             </div>
         );
     }

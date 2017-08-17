@@ -3,7 +3,7 @@ import * as actionTypes from "../actiontypes/actionTypes";
 const initialState = {
     items: [],
     edit: false,
-    searchText: ""
+    searchText: "abc"
 };
 
 export default function stateReducer(state = initialState, action) {
@@ -11,11 +11,13 @@ export default function stateReducer(state = initialState, action) {
         /*  case actionTypes.SHOW_DETAILS:
               console.log(state);
               return Object.assign({}, ...state,action.items);*/
-        case actionTypes.EDIT_DETAILS:
+        case actionTypes.SAVE_EDIT_DETAILS:
             return Object.assign({}, ...state, {edit: true});
         case actionTypes.SHOW_DETAILS_ACTION:
             return Object.assign({}, ...state, {items: action.items});
-        default:
+        case actionTypes.SEARCH_TEXT_ACTION:
+            return Object.assign({}, ...state, {searchText: action.searchText});
+         default:
             return Object.assign({}, state);
     }
 }

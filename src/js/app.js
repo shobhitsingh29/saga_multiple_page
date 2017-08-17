@@ -7,17 +7,19 @@ import {BrowserRouter as Router, Route, Link, Switch, Redirect, browserHistory} 
 class App extends React.Component {
     componentDidMount() {
     }
+
     render() {
         return (
-            <Router history={browserHistory} >
+            <Router history={browserHistory}>
                 <Switch>
                     <Redirect exact from="/" to="/home"/>
-                    <Route  path="/home" component={HomeContainer}/>
-                    <Route  path="/search" component={HomeContainer}/>
-                    <Route  path="/detailsContainer" component={DetailsContainer}/>
+                    <Route path="/home" component={HomeContainer}/>
+                    <Route path="/search" component={HomeContainer}/>
+                    <Route path="/detailsContainer" component={DetailsContainer}/>
                 </Switch>
             </Router>
         );
     }
 }
+
 export default App;

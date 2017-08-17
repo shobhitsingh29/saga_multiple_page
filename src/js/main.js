@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import createSagaMiddleware from "redux-saga";
-import { Provider } from "react-redux";
-import { combineReducers, createStore, applyMiddleware } from "redux";
-import { default as myreducers } from "./reducers/statereducer.js";
-import { logger, crashReporter } from "./middlewares/midlleware";
-
+import {Provider} from "react-redux";
+import {combineReducers, createStore, applyMiddleware} from "redux";
+import {default as myreducers} from "./reducers/statereducer.js";
+import {logger, crashReporter} from "./middlewares/midlleware";
 
 import "../css/styles.css";
 import utils from "../js/common/utils";
@@ -24,12 +23,13 @@ sagaMiddleware.run(rootSaga);
 
 class Main extends React.Component {
 
-    render(){
-        return(
+    render() {
+        return (
             <Provider store={store}>
-            <App />
+                <App/>
             </Provider>
         );
     }
 }
-ReactDOM.render(<Main />, document.getElementById("root"));
+
+ReactDOM.render(<Main/>, document.getElementById("root"));
