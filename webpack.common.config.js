@@ -2,7 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 module.exports = {
     devtool: "inline-source-map",
-    entry: ['webpack-hot-middleware/client?reload=true',
+    entry: [
+        'babel-polyfill',
+        'webpack-hot-middleware/client?reload=true',
         path.resolve(__dirname, "./src/js/main.js")
     ],
     output: {

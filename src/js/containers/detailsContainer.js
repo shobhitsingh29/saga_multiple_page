@@ -1,7 +1,16 @@
 import React from "react";
 import Detail from "../components/details";
 import EditDetail from "../components/editDetail";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import * as stateActions from "../actions/actions.js";
 
+const mapStateToProps = state => {
+
+};
+const mapDispatchToProps = dispatch => ({
+    editDetailsFunction:()=>dispatch(stateActions.editDetailsFunction())
+});
 class DetailsContainer extends React.Component {
     constructor(props) {
         super(props);
@@ -106,7 +115,7 @@ class DetailsContainer extends React.Component {
 
             }
 				{this.state.edit &&
-                    <EditDetail  itemData={this.state.tempData} closeButton={this.closeButton}   handleDataChange={this.handleDataChange}
+                    <EditDetail  itemData={this.state.tempData} closeButton={this.closeButton} clearData={this.clearData}   handleDataChange={this.handleDataChange}
 								saveData={this.saveData}/>
 				}
 
@@ -114,5 +123,4 @@ class DetailsContainer extends React.Component {
         );
     }
 }
-
-export default DetailsContainer;
+export default connect(mapStateToProps,mapDispatchToProps)(DetailsContainer);

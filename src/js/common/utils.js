@@ -1,6 +1,8 @@
-var utils={
-	
-	searchPath:"/search/"
-	
-};
+var utils = {
+        searchval: "search",
+        searchPath:
+            "/search/"
 
+    }
+;
+export default utils;

@@ -1,7 +1,6 @@
-import * as types from "../actiontypes/actionsTypes.js";
+import * as types from "../actiontypes/actionTypes";
 
 export function showDetailsFunction() {
-
     return {
         type: types.SHOW_DETAILS,
         text: types.SHOW_DETAILS
