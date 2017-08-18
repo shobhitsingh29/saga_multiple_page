@@ -64,7 +64,7 @@ class DetailsContainer extends React.Component {
         this.postData();
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.showFilteredDetailsFunction();
     }
 

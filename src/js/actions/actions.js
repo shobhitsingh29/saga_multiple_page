@@ -6,6 +6,19 @@ export function showDetailsFunction() {
         text: types.SHOW_DETAILS
     };
 }
+export function showSearchedDetailsFunction(searchedData) {
+    return {
+        type: types.SHOW_SEARCHED_DETAILS,
+        text: types.SHOW_SEARCHED_DETAILS,
+        searchedData:searchedData
+    };
+}
+export function clearSearchTextFunction() {
+    return {
+        type: types.CLEAR_SEARCH_TEXT,
+        text: types.CLEAR_SEARCH_TEXT
+    };
+}
 export function showFilteredDetailsFunction() {
     return {
         type: types.SHOW_FILTERED_DETAILS,
