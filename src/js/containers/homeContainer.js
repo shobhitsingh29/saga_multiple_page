@@ -1,7 +1,4 @@
 import React from "react";
-import Search from "../components/search";
-import ItemsList from "./itemsList";
-import utils from "../common/utils";
 import Home from "../components/home";
 
 import * as stateActions from "../actions/actions.js";

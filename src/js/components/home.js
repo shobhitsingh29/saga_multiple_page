@@ -2,6 +2,8 @@ import React from "react";
 import Search from "../components/search";
 import ItemsList from "../containers/itemsList";
 import utils from "../common/utils";
+
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -50,10 +52,10 @@ class Home extends React.Component {
                   });*/
         }
 
-        /*clearData()
+        clearData()
         {
             this.props.searchText = "";
-        }*/
+        }
 
         handleSearchText(event)
         {
@@ -72,7 +74,6 @@ class Home extends React.Component {
 
         render()
         {
-            console.log(this.props);
             return (
                 <div className="bg-detail">
                     <Search clearData={this.props.clearData} searchText={this.props.searchText}

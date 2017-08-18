@@ -3,7 +3,7 @@ import {delay} from "redux-saga";
 import {call,put,takeEvery,all} from "redux-saga/effects";
 import * as actionTypes from "../actiontypes/actionTypes";
 
-import {getData} from "../common/api/api.js";
+import {getData,updateData} from "../common/api/api.js";
 
 export function* showDetailsAsync(){
 
@@ -15,24 +15,26 @@ export function* showDetailsWatch(){
     yield takeEvery(actionTypes.SHOW_DETAILS,showDetailsAsync);
 }
 
-export function* saveEditDetailsAsync(){
-    yield put({type:"SAVE_EDIT_DETAILS_ACTION",text});
+export function* showFilteredDetailsAsync(){
+    const items=yield call(getData);
+    yield put({type:"SHOW_FILTERED_DETAILS_ACTION",items});
 }
 
-export function* saveEditDetailsWatch(){
-    yield takeEvery(actionTypes.SAVE_EDIT_DETAILS,saveEditDetailsAsync);
+export function* showFilteredDetailsWatch(){
+    yield takeEvery(actionTypes.SHOW_FILTERED_DETAILS,showFilteredDetailsAsync);
 }
 
-export function* searchTextAsync(){
-    yield put({type:"SEARCH_TEXT_ACTION",text});
+export function* updateSavedDetailsAsync(action){
+    const updatedJsonData = yield call(updateData,action.id,action.payload);
+    yield put({type:"UPDATED_JSON_DATA_ACTION",updatedJsonData});
 }
 
-export function* searchTextWatch(){
-    yield takeEvery(actionTypes.SEARCH_TEXT,searchTextAsync);
+export function* updateSavedDetailsWatch(){
+    yield takeEvery(actionTypes.UPDATED_JSON_DATA,updateSavedDetailsAsync);
 }
 
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
-    yield all([  showDetailsWatch(),saveEditDetailsWatch()
+    yield all([  showDetailsWatch(),updateSavedDetailsWatch(),showFilteredDetailsWatch()
     ]);
 }

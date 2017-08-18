@@ -24,7 +24,8 @@ const EditDetail = (props) => {
                     </div>
                     <div className="button_right">
                         <input type="button" onClick={props.saveData} value="Save" className="btn btn-default save_button"/>
-                        <input className="close"  type="button" onClick={props.closeButton} value="Close"  />
+                        <input type="button" onClick={props.clearData} value="clear" className="btn btn-default clear_button"/>
+                        <input className="close"  type="button" onClick={props.closeButton} value="X"  />
                     </div>
                 </div>
             </form>

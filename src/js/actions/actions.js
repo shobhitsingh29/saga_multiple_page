@@ -6,6 +6,12 @@ export function showDetailsFunction() {
         text: types.SHOW_DETAILS
     };
 }
+export function showFilteredDetailsFunction() {
+    return {
+        type: types.SHOW_FILTERED_DETAILS,
+        text: types.SHOW_FILTERED_DETAILS
+    };
+}
 
 export function searchTextFunction(searchText) {
     return {
@@ -14,16 +20,17 @@ export function searchTextFunction(searchText) {
     };
 }
 
-export function editDetailsFunction() {
-
-    return {
-        type: types.GET_EDIT_DETAILS,
-        text: types.GET_EDIT_DETAILS
-    };
-}
 export function editPopUpFunction(edit) {
     return {
         type: types.EDIT_POPUP_STATE,
         edit:edit
+    };
+}
+
+export function upDateJsonDataFunction(id,payload) {
+    return {
+        type: types.UPDATED_JSON_DATA,
+        id:id,
+        payload:payload
     };
 }

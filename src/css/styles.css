@@ -5381,6 +5381,7 @@ button.list-group-item-danger.active {
 }
 
 .close {
+    position: absolute;
     margin-left: 4px;
     margin-top: 3px;
     font-size: 1.3rem;
@@ -5389,6 +5390,8 @@ button.list-group-item-danger.active {
     color: red;
     text-shadow: 0 1px 0 #fff;
     opacity: .5;
+    top: -13px;
+    right: 0;
 }
 
 .close:focus, .close:hover {
@@ -5397,7 +5400,14 @@ button.list-group-item-danger.active {
     cursor: pointer;
     opacity: .75;
 }
+.clear_button{
 
+    margin-left: 10px;
+}
+.detail-modal{
+
+    margin-top: 10px;
+}
 button.close {
     padding: 0;
     color: white;
@@ -5472,13 +5482,15 @@ button.close {
 }
 
 .modal-backdrop {
+    height: 367px;
     position: fixed;
-    top: 0;
+    top: 142px;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 1040;
-    background-color:darkgrey;
+    background-color: darkgrey;
+    border-radius: 1%;
 }
 
 .modal-backdrop.fade {
@@ -9750,12 +9762,26 @@ footer h4{
 
 
 .inline-display a{
+    background-size: 100%;
+    transition: 500ms;
     display: inline-block;
     margin-right: 10px;
+    text-decoration: none !important;
+}
+.inline-display a:hover{
+
 }
 .inline-display a li{
+    background-size: 100%;
+    transition: 500ms;
+    text-align: center;
     border: 1px solid black;
     margin: 5px;
+}
+.inline-display a li:hover{
+    background: cadetblue;
+
+
 }
 .inline-display a li p{
     margin: 0;
@@ -9766,6 +9792,9 @@ footer h4{
 .inline-display img{
   width: 500px;
     height:300px;
+}
+.inline-display img:hover{
+    background-size: 120%;
 }
 .inline-details img{
     width: 500px;
@@ -9841,6 +9870,7 @@ input{
     display: none;
 }
 .align-top-edit{
+    cursor: pointer;
     position: relative;
     top: -123px;
     left: 425px;
@@ -9880,6 +9910,7 @@ label {
     margin: 0 auto;
 }
 input[type="button"] {
+    cursor: pointer;
     padding: 15px;
     outline: 0;
     color: #000;
@@ -9897,8 +9928,25 @@ input[type="button"] {
     color: red;
 
 }.edit-data label{
-    color: red;
+     color: red;
  }
- .button_right{
-     margin-left: 10px;
- }
+.button_right{
+    margin-left: 10px;
+}
+.back-to-home{
+    margin: 0 auto;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.back-to-home-div{
+    margin:0 auto;
+    text-align: center;
+    margin-top: 5px;
+}

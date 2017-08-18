@@ -2,8 +2,9 @@ import React from "react";
 import DetailList from "../components/detailList";
 import EditDetail from "../components/editDetail";
 import * as stateActions from "../actions/actions.js";
+import {updateData} from "../common/api/api";
 
-
+import {BrowserRouter as Router, Route, Link, Switch, Redirect, browserHistory} from "react-router-dom";
 
 
 class DetailsContainer extends React.Component {
@@ -27,11 +28,11 @@ class DetailsContainer extends React.Component {
     }
 
     handleDataChange(args, event) {
-        var value = event.target.value;
-        var name = args[0]["name"];
-        var newObj = {};
+        let value = event.target.value;
+        let name = args[0]["name"];
+        let newObj = {};
         newObj[name] = value;
-        var newItemData = Object.assign({}, this.state.tempData, newObj);
+        let newItemData = Object.assign({}, this.state.tempData, newObj);
         this.setState({
             tempData: newItemData
         });
@@ -49,27 +50,13 @@ class DetailsContainer extends React.Component {
 
     postData() {
 
-        var payload = Object.assign({}, this.state.tempData);
-        var id = this.state.tempData.id;
-        var data = new FormData();
-        fetch(`http://localhost:3000/tilesData/${id}`, {
-            method: "put",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(payload)
-        }).then(function (response) {
-            return response.json();
-        }).then(function (data) {
-
-        });
+        let payload = Object.assign({}, this.state.tempData);
+        let id = this.state.tempData.id;
+        this.props.upDateJsonDataFunction(id, payload);
 
     }
 
     saveData() {
-        console.log(this.state.tempData);
-        console.log(this.state.itemData);
         this.setState({
             itemData: this.state.tempData
         });
@@ -77,40 +64,50 @@ class DetailsContainer extends React.Component {
     }
 
     componentDidMount() {
-        var main = this;
-        fetch("http://localhost:3000/tilesData").then(function (response) {
-            return response.json();
-        }).then(function (data) {
-            var currentURL = window.location.href;
-            let splitURL = currentURL.split("/");
-            let searchString = splitURL[splitURL.length - 1];
-            let lengthOfItems = data.items.length;
-            for (let i = 0; i < lengthOfItems; i++) {
-                let id = data.items[i]["id"];
-                if (searchString === id) {
-                    main.setState({
-                        itemData: data.items[i],
-                        tempData: data.items[i]
-                    });
-                    break;
-                }
+        this.props.showFilteredDetailsFunction();
+        console.log(this.props);
+        /*let currentURL = window.location.href;
+        let splitURL = currentURL.split("/");
+        let searchString = splitURL[splitURL.length - 1];
+        let lengthOfItems = this.props.items.length;
+        for (let i = 0; i < lengthOfItems; i++) {
+            let id = this.props.items[i]["id"];
+            if (searchString === id) {
+                this.setState({
+                    itemData: this.props.items[i],
+                    tempData: this.props.items[i]
+                });
+                break;
             }
-        });
-    }
+        }*/
 
+    }
+    componentWillUpdate(){
+
+}
     render() {
+        console.log(this.props);
         return (
-            <div >.
-                <DetailList handleEdit={this.handleEdit}  itemData={this.state.itemData}/>{
+            <div>
+                <Link to={"/home"}>
+                    <div className="back-to-home-div">
+                        <button className="back-to-home">back to home</button>
+                    </div>
+
+                </Link>
+
+                <DetailList handleEdit={this.handleEdit} itemData={this.state.itemData}/>{
 
             }
                 {this.props.edit &&
-                <EditDetail  itemData={this.state.tempData} closeButton={this.closeButton} clearData={this.clearData}   handleDataChange={this.handleDataChange}
-                             saveData={this.saveData}/>
+                <EditDetail itemData={this.state.tempData} closeButton={this.closeButton} clearData={this.clearData}
+                            handleDataChange={this.handleDataChange}
+                            saveData={this.saveData}/>
                 }
 
             </div>
         );
     }
 }
+
 export default (DetailsContainer);
