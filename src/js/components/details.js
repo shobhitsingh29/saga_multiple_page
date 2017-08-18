@@ -1,6 +1,7 @@
 import React from "react";
 import DetailList from "../components/detailList";
 import EditDetail from "../components/editDetail";
+import _ from "lodash";
 import * as stateActions from "../actions/actions.js";
 import {updateData} from "../common/api/api";
 
@@ -65,28 +66,27 @@ class DetailsContainer extends React.Component {
 
     componentDidMount() {
         this.props.showFilteredDetailsFunction();
-        console.log(this.props);
-        /*let currentURL = window.location.href;
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
+        let currentURL = nextProps.location.pathname;
         let splitURL = currentURL.split("/");
         let searchString = splitURL[splitURL.length - 1];
-        let lengthOfItems = this.props.items.length;
-        for (let i = 0; i < lengthOfItems; i++) {
-            let id = this.props.items[i]["id"];
+        _.map(nextProps.items,(items,index)=> {
+            let id = nextProps.items[index]["id"];
             if (searchString === id) {
                 this.setState({
-                    itemData: this.props.items[i],
-                    tempData: this.props.items[i]
+                    itemData: nextProps.items[index],
+                    tempData: nextProps.items[index]
                 });
-                break;
+
             }
-        }*/
+        });
 
     }
-    componentWillUpdate(){
 
-}
     render() {
-        console.log(this.props);
         return (
             <div>
                 <Link to={"/home"}>

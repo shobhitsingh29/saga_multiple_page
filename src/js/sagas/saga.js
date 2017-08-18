@@ -25,8 +25,8 @@ export function* showFilteredDetailsWatch(){
 }
 
 export function* updateSavedDetailsAsync(action){
-    const updatedJsonData = yield call(updateData,action.id,action.payload);
-    yield put({type:"UPDATED_JSON_DATA_ACTION",updatedJsonData});
+    const items = yield call(updateData,action.id,action.payload);
+    yield put({type:"UPDATED_JSON_DATA_ACTION",items});
 }
 
 export function* updateSavedDetailsWatch(){
