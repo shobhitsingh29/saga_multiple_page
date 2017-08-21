@@ -61,8 +61,11 @@ class Home extends React.PureComponent {
     }
 
     handleSearchText(event) {
+
         let value = event.target.value;
         this.props.handleSearchText(value);
+
+
     }
 
     searchData() {
