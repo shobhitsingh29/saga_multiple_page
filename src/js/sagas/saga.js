@@ -9,6 +9,7 @@ export function* showDetailsAsync(){
 
     const items=yield call(getData);
     yield put({type:"SHOW_DETAILS_ACTION",items});
+    yield put({type:"SET_FILTERED_DETAILS",items});
 }
 
 export function* showDetailsWatch(){

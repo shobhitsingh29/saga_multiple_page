@@ -4,7 +4,6 @@ import ItemsList from "../containers/itemsListContainer";
 import utils from "../common/utils";
 import _ from "lodash";
 
-
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -16,15 +15,21 @@ class Home extends React.Component {
         this.clearData = this.clearData.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.props.items !== nextProps.items) {
-            this.matchSearchData(nextProps);
-        }
-    }
 
     componentWillMount() {
         this.props.showDetailsFunction();
-        this.state.data=this.props.items;
+
+    }
+
+    componentWillReceiveProps(nextProps) {
+
+        let patt = /home/;
+        if (patt.test(window.location.pathname)) {
+            this.setState({
+                data: nextProps.items
+            });
+
+        }
     }
 
     clearData() {
@@ -34,7 +39,7 @@ class Home extends React.Component {
     matchSearchData(props) {
         let dataToRender = [];
         let searchString = props.searchText.toUpperCase();
-        if(searchString!=="") {
+        if (searchString !== "") {
             _.map(props.items, (items, index) => {
                 let description = props.items[index]["description"].toUpperCase();
                 let name = props.items[index]["name"].toUpperCase();
@@ -47,7 +52,7 @@ class Home extends React.Component {
         this.setState({
             data: dataToRender
         });
-       this.props.showSearchedDetailsFunction(dataToRender);
+        this.props.showSearchedDetailsFunction(dataToRender);
     }
 
     handleSearchText(event) {
@@ -57,11 +62,6 @@ class Home extends React.Component {
 
     searchData() {
         this.matchSearchData(this.props);
-        if (this.props.searchText) {
-            window.location.href = utils.searchPath + this.props.searchText;
-        } else {
-            console.log("search box empty");
-        }
     }
 
     render() {
@@ -70,7 +70,7 @@ class Home extends React.Component {
                 <Search clearData={this.clearData} searchText={this.props.searchText}
                         handleSearchText={this.handleSearchText} searchData={this.searchData}/>
                 {this.props.items.length ?
-                    <ItemsList searchText={this.props.searchText} /> :
+                    <ItemsList filterData={this.state.data} searchText={this.props.searchText}/> :
                     <div className="no-result">No Result Found , Search Again</div>}
             </div>
         );

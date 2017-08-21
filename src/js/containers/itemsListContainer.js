@@ -7,8 +7,7 @@ import {connect} from "react-redux";
 
 
 const mapStateToProps = ({state}) => ({
-    items: state.items,
-    filteredItems:state.filteredItems
+
 });
 
 const mapDispatchToProps = dispatch => ({

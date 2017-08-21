@@ -18,6 +18,7 @@ const mapDispatchToProps = dispatch => ({
     clearSearchTextFunction: () => dispatch(stateActions.clearSearchTextFunction()),
     handleSearchText:(searchText)=>dispatch(stateActions.searchTextFunction(searchText))
 
+
 });
 
 const HomeContainer=connect(mapStateToProps,mapDispatchToProps)(Home);

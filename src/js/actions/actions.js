@@ -39,6 +39,12 @@ export function editPopUpFunction(edit) {
         edit:edit
     };
 }
+export function setFilterDataFunction() {
+    return {
+        type: types.SET_FILTERED_DETAILS
+
+    };
+}
 
 export function upDateJsonDataFunction(id,payload) {
     return {

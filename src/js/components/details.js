@@ -69,7 +69,6 @@ class DetailsContainer extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
         let currentURL = nextProps.location.pathname;
         let splitURL = currentURL.split("/");
         let searchString = splitURL[splitURL.length - 1];
@@ -93,7 +92,6 @@ class DetailsContainer extends React.Component {
                     <div className="back-to-home-div">
                         <button className="back-to-home">back to home</button>
                     </div>
-
                 </Link>
 
                 <DetailList handleEdit={this.handleEdit} itemData={this.state.itemData}/>{
