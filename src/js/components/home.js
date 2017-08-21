@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "../components/search";
 import ItemsList from "../components/itemList";
-import utils from "../common/utils";
+import utils from "../common/utils/utils";
 import _ from "lodash";
 
 class Home extends React.PureComponent {

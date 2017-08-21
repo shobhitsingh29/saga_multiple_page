@@ -7,7 +7,7 @@ import {default as myreducers} from "./reducers/statereducer.js";
 import {logger, crashReporter} from "./middlewares/midlleware";
 
 import "../css/styles.css";
-import utils from "../js/common/utils";
+import utils from "./common/utils/utils";
 import App from "./app";
 import rootSaga from "./sagas/saga.js";
 
