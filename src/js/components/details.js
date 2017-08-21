@@ -8,7 +8,7 @@ import {updateData} from "../common/api/api";
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, browserHistory} from "react-router-dom";
 
 
-class DetailsContainer extends React.Component {
+class DetailsContainer extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {

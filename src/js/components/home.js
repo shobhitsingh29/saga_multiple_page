@@ -1,10 +1,10 @@
 import React from "react";
 import Search from "../components/search";
-import ItemsList from "../containers/itemsListContainer";
+import ItemsList from "../components/itemList";
 import utils from "../common/utils";
 import _ from "lodash";
 
-class Home extends React.Component {
+class Home extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -16,16 +16,14 @@ class Home extends React.Component {
     }
 
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.showDetailsFunction();
 
     }
 
     componentWillReceiveProps(nextProps) {
-
-
-        let patt = /home/;
-        if (patt.test(window.location.pathname)) {
+        let pattern = /home/;
+        if (pattern.test(window.location.pathname)) {
             this.setState({
                 data: nextProps.items
             });
@@ -54,6 +52,7 @@ class Home extends React.Component {
                     dataToRender.push(props.items[index]);
                 }
             });
+
         }
         this.setState({
             data: dataToRender

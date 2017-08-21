@@ -4,7 +4,7 @@ import _ from "lodash";
 import * as stateActions from "../actions/actions.js";
 import PropTypes from "prop-types";
 
-class ItemsList extends React.Component {
+class ItemsList extends React.PureComponent {
     constructor(props) {
         super(props);
 
