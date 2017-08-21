@@ -9,7 +9,6 @@ const mapStateToProps = ({state}) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    editDetailsFunction: () => dispatch(stateActions.editDetailsFunction()),
     editPopUpFunction: (edit) => dispatch(stateActions.editPopUpFunction(edit)),
     showFilteredDetailsFunction: () => dispatch(stateActions.showFilteredDetailsFunction()),
     upDateJsonDataFunction: (id, payload) => dispatch(stateActions.upDateJsonDataFunction(id, payload))

@@ -23,12 +23,17 @@ class Home extends React.Component {
 
     componentWillReceiveProps(nextProps) {
 
+
         let patt = /home/;
         if (patt.test(window.location.pathname)) {
             this.setState({
                 data: nextProps.items
             });
 
+        }
+
+        if (this.props.items !== nextProps.items) {
+            this.matchSearchData(nextProps);
         }
     }
 
@@ -38,14 +43,15 @@ class Home extends React.Component {
 
     matchSearchData(props) {
         let dataToRender = [];
-        let searchString = props.searchText.toUpperCase();
+        let splitURL = window.location.href.split("/");
+        let searchString = splitURL[splitURL.length - 1].toUpperCase();
         if (searchString !== "") {
             _.map(props.items, (items, index) => {
                 let description = props.items[index]["description"].toUpperCase();
                 let name = props.items[index]["name"].toUpperCase();
                 let id = props.items[index]["id"].toUpperCase();
                 if (description.indexOf(searchString) >= 0 || name.indexOf(searchString) >= 0 || id.indexOf(searchString) >= 0) {
-                    dataToRender.push(this.props.items[index]);
+                    dataToRender.push(props.items[index]);
                 }
             });
         }
@@ -61,6 +67,8 @@ class Home extends React.Component {
     }
 
     searchData() {
+        this.props.showDetailsFunction();
+
         this.matchSearchData(this.props);
     }
 
