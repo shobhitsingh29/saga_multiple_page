@@ -60,8 +60,19 @@ describe('actions', () => {
 
 
 describe('actions', () => {
-    it('should create an action for edit state', () => {
-        const edit = '';
+    it('should create an action for edit state for false', () => {
+        const edit = false;
+        const expectedAction = {
+            type: types.EDIT_POPUP_STATE,
+            edit: edit
+        };
+        expect(actionTypes.editPopUpFunction(edit)).toEqual(expectedAction)
+    })
+});
+
+describe('actions', () => {
+    it('should create an action for edit state for true', () => {
+        const edit = true;
         const expectedAction = {
             type: types.EDIT_POPUP_STATE,
             edit: edit

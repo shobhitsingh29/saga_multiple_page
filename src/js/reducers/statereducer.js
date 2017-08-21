@@ -4,7 +4,6 @@ const initialState = {
     items: [],
     edit: false,
     searchText: "",
-    id: "",
     filteredItems: []
 };
 

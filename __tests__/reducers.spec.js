@@ -6,37 +6,41 @@ import reducer from '../src/js/reducers/statereducer';
 
 describe('reducer', () => {
     it('set search term', () => {
-        expect(reducer(undefined, {})).toEqual( {
-            searchTerm: '',
-            shows:[],
-            editState: false,
-            filteredTile : {}
+        expect(reducer(undefined, {})).toEqual({
+            searchText: "",
+            items: [],
+            edit: false,
+            filteredItems: []
+        })
+    })
+});
+
+
+describe('reducer', () => {
+    it('set searched details with value', () => {
+        expect(reducer(undefined, {type: 'SHOW_SEARCHED_DETAILS', searchedData: []})).toEqual({
+
+            searchText: "",
+            items: [],
+            edit: false,
+            filteredItems: []
         })
     })
 });
 
 describe('reducer', () => {
-    it('set search term', () => {
-        expect(reducer(undefined, {type:'SET_SEARCH_TERM',payload : 'search-Term'})).toEqual( {
-            searchTerm: 'search-Term',
-            shows:[],
-            editState: false,
-            filteredTile : {}
+    it('clear search term', () => {
+        expect(reducer(undefined, {type:'CLEAR_SEARCH_TEXT',searchText : 'delete-search-Term'})).toEqual( {
+            searchText: "",
+            items: [],
+            edit: false,
+            filteredItems: []
         })
     })
 });
 
-describe('reducer', () => {
-    it('delete search term', () => {
-        expect(reducer(undefined, {type:'DELETE_SEARCH_TERM',payload : 'delete-search-Term'})).toEqual( {
-            searchTerm: '',
-            shows:[],
-            editState: false,
-            filteredTile : {}
-        })
-    })
-});
 
+/*
 describe('reducer', () => {
     it('loaded tiles', () => {
         expect(reducer(undefined, {type:'LOADED_TILES',shows: ['1']})).toEqual( {
@@ -79,4 +83,4 @@ describe('reducer', () => {
             filteredTile : {"title":"image1"}
         })
     })
-});
+});*/
