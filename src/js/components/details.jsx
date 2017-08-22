@@ -1,8 +1,8 @@
 import React from "react";
-import DetailList from "../components/detailList";
-import EditDetail from "../components/editDetail";
+import DetailList from "./detailList";
+import EditDetail from "./editDetail";
 import _ from "lodash";
-import * as stateActions from "../actions/actions.js";
+import * as stateActions from "../actions/actions.jsx";
 import {updateData} from "../common/api/api";
 
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, browserHistory} from "react-router-dom";
@@ -72,7 +72,7 @@ class DetailsContainer extends React.PureComponent {
         let currentURL = nextProps.location.pathname;
         let splitURL = currentURL.split("/");
         let searchString = splitURL[splitURL.length - 1];
-        _.map(nextProps.items,(items,index)=> {
+        _.map(nextProps.items, (items, index) => {
             let id = nextProps.items[index]["id"];
             if (searchString === id) {
                 this.setState({

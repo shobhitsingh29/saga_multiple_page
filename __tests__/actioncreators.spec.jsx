@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import * as action from '../src/js/actions/actions.js';
+import * as action from '../src/js/actions/actions.jsx';
 import * as actionTypes from '../src/js/actiontypes/actionTypes';
 
 
@@ -58,16 +58,6 @@ describe('actions', () => {
 });
 
 
-describe('actions', () => {
-    it('should create an action for edit state for false', () => {
-        const edit = false;
-        const expectedAction = {
-            type: actionTypes.EDIT_POPUP_STATE,
-            edit: edit
-        };
-        expect(action.editPopUpFunction(edit)).toEqual(expectedAction)
-    })
-});
 
 describe('actions', () => {
     it('should create an action for edit state for true', () => {

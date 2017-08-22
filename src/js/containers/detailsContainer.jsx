@@ -1,7 +1,7 @@
 import React from "react";
 import Detail from "../components/details";
 import {connect} from "react-redux";
-import * as stateActions from "../actions/actions.js";
+import * as stateActions from "../actions/actions.jsx";
 
 const mapStateToProps = ({state}) => ({
     edit: state.edit,

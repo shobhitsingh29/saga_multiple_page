@@ -15,4 +15,4 @@ const crashReporter = store => next => action => {
     }
 };
 
-export {logger,crashReporter};
+export {logger, crashReporter};

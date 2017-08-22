@@ -1,6 +1,6 @@
 import React from "react";
-import Search from "../components/search";
-import ItemsList from "../components/itemList";
+import Search from "./search";
+import ItemsList from "./itemList";
 import utils from "../common/utils/utils";
 import _ from "lodash";
 

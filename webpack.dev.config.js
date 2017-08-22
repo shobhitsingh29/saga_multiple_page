@@ -5,7 +5,7 @@ module.exports = {
     entry: [
         'webpack-hot-middleware/client?reload=true',
         'babel-polyfill',
-        './src/js/main.js'
+        './src/js/main.jsx'
     ],
     output: {
         path: path.resolve(__dirname, "./dist"),
@@ -25,7 +25,7 @@ module.exports = {
         loaders: [
             {
                 enforce: 'pre',
-                test: /\.js$/,
+                test: /\.jsx$/,
                 loader: 'eslint-loader',
                 options: {
                     fix: false
@@ -33,7 +33,7 @@ module.exports = {
                 exclude: /(node_modules)/
             },
             {
-                test: /\.js$/,
+                test: /\.jsx$/,
                 loader: "babel-loader",
                 exclude: /node_modules/
             }, {

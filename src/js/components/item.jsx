@@ -4,8 +4,8 @@ import {BrowserRouter as Router, Route, Link, Switch, Redirect, browserHistory} 
 const Item = (props) => {
     return (
         <Link to={`/detailsContainer/${props.listItem.id}`}>
-            <li >
-                <p>{props.listItem.id}</p>            
+            <li>
+                <p>{props.listItem.id}</p>
                 <p>{props.listItem.name}</p>
                 <p>{props.listItem.description}</p>
                 <img src={props.listItem.img} alt="season"/>
