@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 const DetailList = (props) => {
 
     return (
@@ -18,6 +18,14 @@ const DetailList = (props) => {
             </li>
         </div>
     );
+};
+
+
+DetailList.propTypes = {
+    id: PropTypes.number,
+    name:PropTypes.string,
+    description:PropTypes.string
+
 };
 export default DetailList;
 

@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, browserHistory} from "react-router-dom";
 
-
+import PropTypes from "prop-types";
 const Search = (props) => {
     return (
         <div>
@@ -22,5 +22,12 @@ const Search = (props) => {
         </div>
 
     );
+};
+
+Search.propTypes = {
+    searchText: PropTypes.string,
+    searchData:PropTypes.func
+
+
 };
 export default Search;

@@ -3,6 +3,7 @@ import Search from "./search";
 import ItemsList from "./itemList";
 import utils from "../common/utils/utils";
 import _ from "lodash";
+import PropTypes from "prop-types";
 
 class Home extends React.PureComponent {
     constructor(props) {
@@ -87,5 +88,9 @@ class Home extends React.PureComponent {
     }
 }
 
+Home.propTypes = {
+    items: PropTypes.object,
+    searchText:PropTypes.string
+};
 
 export default (Home);

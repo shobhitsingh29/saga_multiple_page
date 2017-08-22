@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const EditDetail = (props) => {
 
@@ -39,5 +40,14 @@ const EditDetail = (props) => {
         </div>
 
     );
+};
+
+EditDetail.propTypes = {
+    id: PropTypes.number,
+    handleDataChange: PropTypes.func,
+    saveData: PropTypes.func,
+    closeButton: PropTypes.func
+
+
 };
 export default EditDetail;

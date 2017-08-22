@@ -22,4 +22,8 @@ class ItemsList extends React.PureComponent {
     }
 }
 
+ItemsList.propTypes = {
+    filterData: PropTypes.array
+
+};
 export default (ItemsList);
