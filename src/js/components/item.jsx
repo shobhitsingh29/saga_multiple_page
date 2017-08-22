@@ -5,13 +5,17 @@ import PropTypes from "prop-types";
 
 const Item = (props) => {
     return (
-        <Link to={`/detailsContainer/${props.listItem.id}`}>
+
+
+        <Link to={`/detailsContainer/${props.filterData.id}`}>
+            {props.filterData &&
             <li>
-                <p>{props.listItem.id}</p>
-                <p>{props.listItem.name}</p>
-                <p>{props.listItem.description}</p>
-                <img src={props.listItem.img} alt="season"/>
+                <p>{props.filterData.id}</p>
+                <p>{props.filterData.name}</p>
+                <p>{props.filterData.description}</p>
+                <img src={props.filterData.img} alt="season"/>
             </li>
+            }
         </Link>
     );
 };

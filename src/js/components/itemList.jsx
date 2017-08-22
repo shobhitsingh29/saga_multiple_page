@@ -12,12 +12,15 @@ class ItemsList extends React.PureComponent {
 
     render() {
         return (
+            <div>{this.props.filterData &&
             <ul className="inline-display">
-                {_.map(this.props.filterData, (listItem, index) => {
-                        return <Item listItem={listItem} key={index} index={index}/>;
+                {_.map(this.props.filterData, (filterData, index) => {
+                        return <Item filterData={filterData} key={index} index={index}/>;
                     }
                 )}
             </ul>
+            }
+            </div>
         );
     }
 }

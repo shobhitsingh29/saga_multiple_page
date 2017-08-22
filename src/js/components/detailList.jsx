@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 const DetailList = (props) => {
 
     return (
         <div className="container bg-gray bg-edit">
+
+            {props.itemData &&
             <li className="inline-details">
                 <label>ID : </label><p id="id"> {props.itemData.id}</p>
                 <br/>
@@ -16,6 +19,7 @@ const DetailList = (props) => {
                         onClick={props.handleEdit}>Click To Edit Details
                 </button>
             </li>
+            }
         </div>
     );
 };
@@ -23,8 +27,8 @@ const DetailList = (props) => {
 
 DetailList.propTypes = {
     id: PropTypes.number,
-    name:PropTypes.string,
-    description:PropTypes.string
+    name: PropTypes.string,
+    description: PropTypes.string
 
 };
 export default DetailList;

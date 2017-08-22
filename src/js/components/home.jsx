@@ -89,7 +89,7 @@ class Home extends React.PureComponent {
 }
 
 Home.propTypes = {
-    items: PropTypes.object,
+    items: PropTypes.array,
     searchText:PropTypes.string
 };
 
