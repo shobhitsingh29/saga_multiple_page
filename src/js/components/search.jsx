@@ -12,7 +12,7 @@ const Search = (props) => {
             </Link>
             <form>
                 <input type="text" name="focus" className="search-box" placeholder="Search" value={props.searchText}
-                       onChange={props.handleSearchText}/>
+                       onChange={props.handleSearchText} required/>
                 <button className="close-icon" type="reset" onClick={props.clearData}/>
                 <Link to={`/search/${props.searchText}`}>
                     <input type="button" value="search" onClick={props.searchData}/>
