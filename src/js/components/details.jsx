@@ -3,10 +3,8 @@ import DetailList from "./detailList";
 import EditDetail from "./editDetail";
 import _ from "lodash";
 import * as stateActions from "../actions/actions.jsx";
-import {updateData} from "../common/api/api";
-
+import {getSearchString} from "../common/utils/utils";
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, browserHistory} from "react-router-dom";
-
 
 class DetailsContainer extends React.PureComponent {
     constructor(props) {
@@ -25,7 +23,6 @@ class DetailsContainer extends React.PureComponent {
 
     handleEdit() {
         this.props.editPopUpFunction(true);
-
     }
 
     handleDataChange(args, event) {
@@ -50,11 +47,9 @@ class DetailsContainer extends React.PureComponent {
     }
 
     postData() {
-
         let payload = Object.assign({}, this.state.tempData);
         let id = this.state.tempData.id;
         this.props.upDateJsonDataFunction(id, payload);
-
     }
 
     saveData() {
@@ -69,9 +64,7 @@ class DetailsContainer extends React.PureComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-        let currentURL = nextProps.location.pathname;
-        let splitURL = currentURL.split("/");
-        let searchString = splitURL[splitURL.length - 1];
+        let searchString = getSearchString(nextProps);
         _.map(nextProps.items, (items, index) => {
             let id = nextProps.items[index]["id"];
             if (searchString === id) {
@@ -79,10 +72,8 @@ class DetailsContainer extends React.PureComponent {
                     itemData: nextProps.items[index],
                     tempData: nextProps.items[index]
                 });
-
             }
         });
-
     }
 
     render() {
@@ -95,14 +86,12 @@ class DetailsContainer extends React.PureComponent {
                 </Link>
 
                 <DetailList handleEdit={this.handleEdit} itemData={this.state.itemData}/>{
-
             }
                 {this.props.edit &&
                 <EditDetail itemData={this.state.tempData} closeButton={this.closeButton} clearData={this.clearData}
                             handleDataChange={this.handleDataChange}
                             saveData={this.saveData}/>
                 }
-
             </div>
         );
     }

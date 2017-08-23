@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "./search";
 import ItemsList from "./itemList";
-import utils from "../common/utils/utils";
+import {getDataToRender} from "../common/utils/utils";
 import _ from "lodash";
 import PropTypes from "prop-types";
 
@@ -16,10 +16,8 @@ class Home extends React.PureComponent {
         this.clearData = this.clearData.bind(this);
     }
 
-
     componentDidMount() {
         this.props.showDetailsFunction();
-
     }
 
     componentWillReceiveProps(nextProps) {
@@ -28,9 +26,7 @@ class Home extends React.PureComponent {
             this.setState({
                 data: nextProps.items
             });
-
         }
-
         if (this.props.items !== nextProps.items) {
             this.matchSearchData(nextProps);
         }
@@ -41,20 +37,7 @@ class Home extends React.PureComponent {
     }
 
     matchSearchData(props) {
-        let dataToRender = [];
-        let splitURL = window.location.href.split("/");
-        let searchString = splitURL[splitURL.length - 1].toUpperCase();
-        if (searchString !== "") {
-            _.map(props.items, (items, index) => {
-                let description = props.items[index]["description"].toUpperCase();
-                let name = props.items[index]["name"].toUpperCase();
-                let id = props.items[index]["id"].toUpperCase();
-                if (description.indexOf(searchString) >= 0 || name.indexOf(searchString) >= 0 || id.indexOf(searchString) >= 0) {
-                    dataToRender.push(props.items[index]);
-                }
-            });
-
-        }
+        let dataToRender = getDataToRender(props);
         this.setState({
             data: dataToRender
         });
@@ -62,16 +45,12 @@ class Home extends React.PureComponent {
     }
 
     handleSearchText(event) {
-
         let value = event.target.value;
         this.props.handleSearchText(value);
-
-
     }
 
     searchData() {
         this.props.showDetailsFunction();
-
         this.matchSearchData(this.props);
     }
 
@@ -90,7 +69,6 @@ class Home extends React.PureComponent {
 
 Home.propTypes = {
     items: PropTypes.array,
-    searchText:PropTypes.string
+    searchText: PropTypes.string
 };
-
 export default (Home);

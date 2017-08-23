@@ -28,7 +28,7 @@ module.exports = {
                 test: /\.jsx$/,
                 loader: 'eslint-loader',
                 options: {
-                    fix: false
+                    fix: true
                 },
                 exclude: /(node_modules)/
             },
@@ -37,12 +37,27 @@ module.exports = {
                 loader: "babel-loader",
                 exclude: /node_modules/
             }, {
-                test: /\.css$/,
-                loaders: [{
-                    loader: "style-loader"
+                rules: [{
+                    test: /\.(png|jpg|svg|woff|woff2)?(\?v=\d+.\d+.\d+)?$/,
+                    loader: 'url-loader?limit=8192'
                 },
                     {
-                        loader: "css-loader"
+                        test: /\.(eot|ttf)$/,
+                        loader: 'file-loader'
+                    },
+                    {
+                        test: /\.less$/,
+                        use: [{
+                            loader: "style-loader"
+
+                        }, {
+                            loader: "css-loader"
+                        }, {
+                            loader: "less-loader"
+                        }, {
+                            loader: "resolve-url-loader"
+                        }]
+
                     }]
             }
         ]

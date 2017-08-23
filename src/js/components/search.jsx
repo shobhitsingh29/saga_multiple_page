@@ -9,7 +9,6 @@ const Search = (props) => {
                 <div className="back-to-home-div">
                     <button className="back-to-home">HOME</button>
                 </div>
-
             </Link>
             <form>
                 <input type="text" name="focus" className="search-box" placeholder="Search" value={props.searchText}
@@ -20,14 +19,11 @@ const Search = (props) => {
                 </Link>
             </form>
         </div>
-
     );
 };
 
 Search.propTypes = {
     searchText: PropTypes.string,
     searchData:PropTypes.func
-
-
 };
 export default Search;
