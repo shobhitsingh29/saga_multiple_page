@@ -11,7 +11,7 @@ class App extends React.Component {
                     <Redirect exact from="/" to="/home"/>
                     <Route path="/home" component={HomeContainer}/>
                     <Route path="/search/:searchString" component={HomeContainer}/>
-                    <Route path="/detailsContainer" component={DetailsContainer}/>
+                    <Route path="/detailsContainer/:id" component={DetailsContainer}/>
                 </Switch>
             </Router>
         );
