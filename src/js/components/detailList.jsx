@@ -26,7 +26,7 @@ const DetailList = (props) => {
 
 
 DetailList.propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.object,
     name: PropTypes.string,
     description: PropTypes.string
 

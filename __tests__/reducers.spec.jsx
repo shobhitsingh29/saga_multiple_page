@@ -1,5 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import * as action from '../src/js/actions/actions.jsx';
 import * as actionTypes from '../src/js/actiontypes/actionTypes';
 import reducer from '../src/js/reducers/statereducer';
