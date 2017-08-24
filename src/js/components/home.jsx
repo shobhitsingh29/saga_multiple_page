@@ -7,7 +7,8 @@ class Home extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            redirectn: false
         };
         this.handleSearchText = this.handleSearchText.bind(this);
         this.searchData = this.searchData.bind(this);
@@ -19,9 +20,26 @@ class Home extends React.PureComponent {
         this.props.showDetailsFunction();
 
     }
+
+    componentWillReceiveProps(newProps) {
+        if (newProps.searchText !== "") {
+            this.setState({
+                redirectn: true
+            });
+        }
+        else {
+            this.setState({
+                redirectn: false
+            });
+
+        }
+
+    }
+
     clearData() {
         this.props.clearSearchTextFunction();
     }
+
     handleSearchText(event) {
         let value = event.target.value;
         this.props.handleSearchText(value);
@@ -32,13 +50,14 @@ class Home extends React.PureComponent {
     }
 
     render() {
-        console.log(this.props);
         return (
             <div className="bg-detail">
                 <Search clearData={this.clearData} searchText={this.props.searchText}
+                        redirection={this.state.redirectn}
                         handleSearchText={this.handleSearchText} searchData={this.searchData}/>
-                {this.props.items.length ?
-                    <ItemsList filterData={this.props.filteredItems(this.props.match.params.searchString)}  searchText={this.props.searchText}/> :
+                {this.props.filteredItems(this.props.match.params.searchString).length?
+                    <ItemsList filterData={this.props.filteredItems(this.props.match.params.searchString)}
+                               searchText={this.props.searchText}/> :
                     <div className="no-result">No Result Found , Search Again</div>}
             </div>
         );
@@ -46,7 +65,6 @@ class Home extends React.PureComponent {
 }
 
 Home.propTypes = {
-    items: PropTypes.array,
     searchText: PropTypes.string
 };
 export default (Home);

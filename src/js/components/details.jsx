@@ -49,6 +49,7 @@ class DetailsContainer extends React.PureComponent {
             itemData: this.state.tempData
         });
         this.props.upDateJsonDataFunction(this.state.tempData.id,  Object.assign({}, this.state.tempData));
+        this.closeButton();
     }
 
     componentWillMount() {

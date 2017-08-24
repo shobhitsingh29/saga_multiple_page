@@ -3,6 +3,8 @@ import {BrowserRouter as Router, Route, Link, Switch, Redirect, browserHistory} 
 
 import PropTypes from "prop-types";
 const Search = (props) => {
+
+
     return (
         <div>
             <Link to={"/home"}>
@@ -14,16 +16,16 @@ const Search = (props) => {
                 <input type="text" name="focus" className="search-box" placeholder="Search" value={props.searchText}
                        onChange={props.handleSearchText} required/>
                 <button className="close-icon" type="reset" onClick={props.clearData}/>
-                <Link to={`/search/${props.searchText}`}>
-                    <input type="button" value="search" onClick={props.searchData}/>
-                </Link>
+                {props.redirection?  <Link to={`/search/${props.searchText}`}>
+                    <input type="button" value="search" onClick={props.searchData} />
+                </Link>: <input type="button" value="search"  onClick={props.searchData}/> }
+
             </form>
         </div>
     );
 };
 
 Search.propTypes = {
-    searchText: PropTypes.string,
-    searchData:PropTypes.func
+    searchText: PropTypes.string
 };
 export default Search;
