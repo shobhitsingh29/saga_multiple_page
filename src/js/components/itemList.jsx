@@ -1,7 +1,6 @@
 import React from "react";
 import Item from "./item";
 import _ from "lodash";
-import * as stateActions from "../actions/actions.jsx";
 import PropTypes from "prop-types";
 
 class ItemsList extends React.PureComponent {
@@ -9,7 +8,6 @@ class ItemsList extends React.PureComponent {
         super(props);
 
     }
-
     render() {
         return (
             <div>{this.props.filterData &&

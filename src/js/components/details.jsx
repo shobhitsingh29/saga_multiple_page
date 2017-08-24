@@ -2,7 +2,6 @@ import React from "react";
 import DetailList from "./detailList";
 import EditDetail from "./editDetail";
 import _ from "lodash";
-import * as stateActions from "../actions/actions.jsx";
 import {getSearchString} from "../common/utils/utils";
 import {BrowserRouter as Router, Route, Link, Switch, Redirect, browserHistory} from "react-router-dom";
 
@@ -18,7 +17,6 @@ class DetailsContainer extends React.PureComponent {
         this.saveData = this.saveData.bind(this);
         this.closeButton = this.closeButton.bind(this);
         this.clearData = this.clearData.bind(this);
-        this.postData = this.postData.bind(this);
     }
 
     handleEdit() {
@@ -46,17 +44,11 @@ class DetailsContainer extends React.PureComponent {
         this.props.editPopUpFunction(false);
     }
 
-    postData() {
-        let payload = Object.assign({}, this.state.tempData);
-        let id = this.state.tempData.id;
-        this.props.upDateJsonDataFunction(id, payload);
-    }
-
     saveData() {
         this.setState({
             itemData: this.state.tempData
         });
-        this.postData();
+        this.props.upDateJsonDataFunction(this.state.tempData.id,  Object.assign({}, this.state.tempData));
     }
 
     componentWillMount() {
