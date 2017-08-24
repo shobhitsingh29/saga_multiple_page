@@ -18,18 +18,20 @@ class Home extends React.PureComponent {
 
     componentDidMount() {
         this.props.showDetailsFunction();
+
     }
 
     componentWillReceiveProps(nextProps) {
+        if (this.props.items !== nextProps.items) {
+            this.matchSearchData(nextProps);
+        }
         let pattern = /home/;
         if (pattern.test(window.location.pathname)) {
             this.setState({
                 data: nextProps.items
             });
         }
-        if (this.props.items !== nextProps.items) {
-            this.matchSearchData(nextProps);
-        }
+
     }
 
     clearData() {

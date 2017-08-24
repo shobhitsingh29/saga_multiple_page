@@ -53,7 +53,7 @@ app.put('/tilesData/:id', function (req, res) {
         else {
             let jsonObject = JSON.parse(data);
             let items = jsonObject.items;
-            var filteredArray = items.filter(function (items) {
+            let filteredArray = items.filter(function (items) {
                 return items.id !== id;
             });
             jsonObject.items = filteredArray;
@@ -85,4 +85,4 @@ app.get('/image/:imgName', function (req, res) {
     res.sendFile(path.join(__dirname, '../assets/img/' + req.params.imgName));
 });
 
-console.log(`listening on ${port}`)
+console.log(`listening on ${port}`);
