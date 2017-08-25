@@ -1,14 +1,15 @@
-import Home from '../components/home';
-import * as stateActions from '../actions/actions';
-import { connect } from 'react-redux';
-import { getRenderingData } from '../common/reselect/selector';
+import Home from "../components/home";
+import * as stateActions from "../actions/actions";
+import {connect} from "react-redux";
+import {getRenderingData} from "../common/reselect/selector";
 
 const mapStateToProps = ({ state }) => {
-    const renderingData = getRenderingData();
     return {
         items: state.items,
         searchText: state.searchText,
-        filteredItems: (searchString) => renderingData(state.items, searchString),
+        filteredItm: getRenderingData(state),
+        filteredItems: state.filteredItems,
+
     };
 };
 const mapDispatchToProps = (dispatch) => {

@@ -1,7 +1,7 @@
-import React from 'react';
-import Search from './search';
-import ItemsList from './itemList';
-import PropTypes from 'prop-types';
+import React from "react";
+import Search from "./search";
+import ItemsList from "./itemList";
+import PropTypes from "prop-types";
 
 class Home extends React.PureComponent {
     constructor(props) {
@@ -18,11 +18,23 @@ class Home extends React.PureComponent {
 
     componentDidMount() {
         this.props.showDetailsFunction();
-
     }
 
     componentWillReceiveProps(newProps) {
-        if (newProps.searchText === '') {
+
+        if (newProps.match.path.match("home")) {
+            this.setState({
+                data: newProps.items,
+            });
+
+        } else {
+            this.setState({
+                data: newProps.filteredItems,
+            });
+
+        }
+
+        if (newProps.searchText === "") {
             this.setState({
                 redirectn: false,
             });
@@ -30,9 +42,7 @@ class Home extends React.PureComponent {
             this.setState({
                 redirectn: true,
             });
-
         }
-
     }
 
     clearData() {
@@ -42,24 +52,26 @@ class Home extends React.PureComponent {
     handleSearchText(event) {
         const value = event.target.value;
         this.props.handleSearchText(value);
+        this.props.showSearchedDetailsFunction(this.props.filteredItm);
     }
 
     searchData() {
-        this.props.showSearchedDetailsFunction(this.props.searchText);
+
+        this.props.showSearchedDetailsFunction(this.props.filteredItm);
     }
 
     render() {
         return (
-            <div className="bg-detail">
+            <div className='bg-detail'>
                 <Search clearData={this.clearData} searchText={this.props.searchText}
-                    redirection={this.state.redirectn}
-                    handleSearchText={this.handleSearchText} searchData={this.searchData}
+                        redirection={this.state.redirectn}
+                        handleSearchText={this.handleSearchText} searchData={this.searchData}
                 />
-                {this.props.filteredItems(this.props.match.params.searchString).length ?
-                    <ItemsList filterData={this.props.filteredItems(this.props.match.params.searchString)}
-                        searchText={this.props.searchText}
-                    /> :
-                    <div className="no-result">No Result Found , Search Again</div>}
+
+                <ItemsList filterData={this.state.data}
+                           searchText={this.props.searchText}
+                />
+
             </div>
         );
     }
@@ -67,7 +79,8 @@ class Home extends React.PureComponent {
 
 Home.propTypes = {
     searchText: PropTypes.string,
-    filteredItems: PropTypes.func,
+    filteredItems: PropTypes.array,
+    filterData: PropTypes.array,
     showDetailsFunction: PropTypes.func,
     clearSearchTextFunction: PropTypes.func,
     showSearchedDetailsFunction: PropTypes.func,

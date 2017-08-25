@@ -1,6 +1,6 @@
 const apiConfig = {
-    baseUrl: '/',
-    tilesData: 'tilesData',
+  baseUrl: "/",
+  tilesData: "tilesData"
 };
 
 export default apiConfig;
