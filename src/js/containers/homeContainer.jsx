@@ -1,7 +1,7 @@
-import Home from "../components/home";
-import * as stateActions from "../actions/actions";
-import {connect} from "react-redux";
-import {getRenderingData} from "../common/reselect/selector";
+import Home from '../components/home';
+import * as stateActions from '../actions/actions';
+import { connect } from 'react-redux';
+import { getRenderingData } from '../common/reselect/selector';
 
 const mapStateToProps = ({ state }) => {
     return {

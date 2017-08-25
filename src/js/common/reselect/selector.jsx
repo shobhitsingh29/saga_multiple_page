@@ -1,5 +1,5 @@
-import {createSelector} from "reselect";
-import _ from "lodash";
+import { createSelector } from 'reselect';
+import _ from 'lodash';
 
 const getItems = (state) => {
     return {
@@ -15,15 +15,12 @@ export const getSearchTerm = (state) => {
 
 export const getRenderingData = createSelector(
     [getItems, getSearchTerm],
-    (items, searchText) => {
-        return _.filter(items.items, (item) => {
+    (items, searchText) => _.filter(items.items, (item) => {
 
-            if (item.description) {
-                return item.description.toLowerCase().search(searchText.searchText) !== -1;
+        if (item.description) {
+            return item.description.toLowerCase().search(searchText.searchText) !== -1;
 
-            }
+        }
 
-        });
-
-    });
+    }));
 
