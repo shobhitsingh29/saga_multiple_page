@@ -1,5 +1,5 @@
 const path = require("path");
-var webpack = require('webpack');
+const webpack = require('webpack');
 module.exports = {
     devtool: "inline-source-map",
     entry: [
@@ -13,14 +13,14 @@ module.exports = {
         publicPath: "/"
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json']
+        extensions: ['.js', '.jsx']
     },
     devServer: {
         hot: true,
         publicPath: "/",
         historyApiFallback: true
     },
-    plugins: [new webpack.HotModuleReplacementPlugin(), new webpack.NamedModulesPlugin()],
+    plugins: [new webpack.HotModuleReplacementPlugin()],
     module: {
         loaders: [
             {
@@ -40,8 +40,7 @@ module.exports = {
                 rules: [{
                     test: /\.(png|jpg|svg|woff|woff2)?(\?v=\d+.\d+.\d+)?$/,
                     loader: 'url-loader?limit=8192'
-                },
-                    {
+                },{
                         test: /\.(eot|ttf)$/,
                         loader: 'file-loader'
                     },
@@ -49,7 +48,6 @@ module.exports = {
                         test: /\.less$/,
                         use: [{
                             loader: "style-loader"
-
                         }, {
                             loader: "css-loader"
                         }, {

@@ -13,7 +13,7 @@ module.exports = {
         publicPath: "/"
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json']
+        extensions: ['.js', '.jsx']
     },
     devServer: {
         port: 8080,
@@ -21,8 +21,7 @@ module.exports = {
         publicPath: "/",
         historyApiFallback: true
     },
-    plugins: [new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin()],
+    plugins: [new webpack.HotModuleReplacementPlugin()],
     module: {
         loaders: [
             {
