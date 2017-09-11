@@ -1,1 +1,46 @@
-{"items":[{"id":"5","name":"season 5","description":"This is for season 5 cover","img":"/image/got5.jpg","href":"/detailsContainer/5"},{"id":"3","name":"season 3","description":"This is for season 3 cover","img":"/image/got3.jpg","href":"/detailsContainer/3"},{"id":"4","name":"season 4","description":"This is for season 4 cover","img":"/image/got3.jpg","href":"/detailsContainer/3"},{"id":"6","name":"season 6","description":"This is for season 6 cover","img":"/image/got6.jpg","href":"/detailsContainer/6"},{"id":"1","name":"season 1","description":"season 1 cover","img":"/image/got1.jpg","href":"/detailsContainer/1"},{"id":"2","name":"season 2","description":"This is for season 2 cover","img":"/image/got2.jpg","href":"/detailsContainer/2"}]}
+{
+  "items": [
+    {
+      "id": "5",
+      "name": "season 5",
+      "description": "This is for season 5 cover",
+      "img": "/image/got5.jpg",
+      "href": "/detailsContainer/5"
+    },
+    {
+      "id": "3",
+      "name": "season 3",
+      "description": "This is for season 3 cover",
+      "img": "/image/got3.jpg",
+      "href": "/detailsContainer/3"
+    },
+    {
+      "id": "4",
+      "name": "season 4",
+      "description": "This is for season 4 cover",
+      "img": "/image/got4.jpg",
+      "href": "/detailsContainer/4"
+    },
+    {
+      "id": "6",
+      "name": "season 6",
+      "description": "This is for season 6 cover",
+      "img": "/image/got6.jpg",
+      "href": "/detailsContainer/6"
+    },
+    {
+      "id": "1",
+      "name": "season 1",
+      "description": "season 1 cover",
+      "img": "/image/got1.jpg",
+      "href": "/detailsContainer/1"
+    },
+    {
+      "id": "2",
+      "name": "season 2",
+      "description": "This is for season 2 cover",
+      "img": "/image/got2.jpg",
+      "href": "/detailsContainer/2"
+    }
+  ]
+}

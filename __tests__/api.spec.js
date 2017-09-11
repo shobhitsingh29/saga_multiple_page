@@ -4,13 +4,6 @@ import * as actionTypes from '../src/js/actiontypes/actionTypes';
 import {getData, updateData} from '../src/js/common/api/api';
 
 describe('apiHelper', () => {
-
-    beforeAll(() => {
-        getData = jest.fn();
-
-        updateData = jest.fn();
-    });
-
     it('getAllCards should call getRequest', () => {
         apiHelper.getAllCards();
 
