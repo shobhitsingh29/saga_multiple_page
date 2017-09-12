@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs');
 const url = require('url');
 const open = require('open');
 const webpack = require('webpack');
@@ -53,10 +53,9 @@ app.put('/tilesData/:id', function (req, res) {
         else {
             let jsonObject = JSON.parse(data);
             let items = jsonObject.items;
-            let filteredArray = items.filter(function (items) {
+            jsonObject.items = items.filter(function (items) {
                 return items.id !== id;
             });
-            jsonObject.items = filteredArray;
 
             jsonObject.items.push(req.body);
             fs.writeFile(filePath, JSON.stringify(jsonObject), 'utf8', function (err) {

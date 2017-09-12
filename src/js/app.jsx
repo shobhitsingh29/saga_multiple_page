@@ -4,7 +4,7 @@ import DetailsContainer from './containers/detailsContainer';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 export const App = () => (
-    <Router >
+    <Router>
         <Switch>
             <Redirect exact from="/" to="/home"/>
             <Route path="/home/" component={HomeContainer}/>

@@ -1,13 +1,6 @@
 {
   "items": [
     {
-      "id": "5",
-      "name": "season 5",
-      "description": "This is for season 5 cover",
-      "img": "/image/got5.jpg",
-      "href": "/detailsContainer/5"
-    },
-    {
       "id": "3",
       "name": "season 3",
       "description": "This is for season 3 cover",
@@ -41,6 +34,13 @@
       "description": "This is for season 2 cover",
       "img": "/image/got2.jpg",
       "href": "/detailsContainer/2"
+    },
+    {
+      "id": "5",
+      "name": "season 5",
+      "description": "This is for season 5 cover",
+      "img": "/image/got5.jpg",
+      "href": "/detailsContainer/5"
     }
   ]
 }
