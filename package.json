@@ -64,7 +64,7 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-destructuring": "^2.1.0",
     "eslint-plugin-flow": "2.29.1",
-    "eslint-plugin-flowtype": "2.33.0",
+    "eslint-plugin-flowtype": "3.10.4",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "5.0.3",
     "eslint-plugin-lodash": "^2.4.4",
