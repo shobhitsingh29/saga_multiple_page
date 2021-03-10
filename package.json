@@ -67,7 +67,7 @@
     "eslint-plugin-flowtype": "2.33.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "5.0.3",
-    "eslint-plugin-lodash": "^2.4.4",
+    "eslint-plugin-lodash": "^7.2.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-prettier": "2.1.1",
     "eslint-plugin-promise": "^3.5.0",
